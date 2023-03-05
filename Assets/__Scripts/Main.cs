@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class Main : MonoBehaviour {
 
@@ -23,7 +25,6 @@ public class Main : MonoBehaviour {
     };
 
     private BoundsCheck bndCheck;
-
 
     /// <summary>
     /// Called by an Enemy ship whenever it is destroyed. It sometimes
@@ -48,6 +49,7 @@ public class Main : MonoBehaviour {
             // Set it to the position of the destroyed ship
             pu.transform.position = e.transform.position;
         }
+        FindObjectOfType<ScoreCounter>().IncreaseScore();
     }
 
     private void Awake()
